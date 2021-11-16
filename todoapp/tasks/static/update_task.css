@@ -1,0 +1,33 @@
+body{
+    background-color: darkslateblue;
+}
+
+.center-column{
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+.item-row{
+    background-color: cornflowerblue;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 3px;
+    color: aliceblue;
+    font-size: 16px;
+    box-shadow: 0 -1px 10px -4px rgba(0,0,0,0.75);
+}
+
+.header{
+    text-align: center;
+    color: orange;
+    -webkit-text-stroke: 1px gray;
+}
+
+.btn{
+    background-color: #17a2b8;
+    color:white;
+    border: #17a2b8;
+    margin-left: 60px;
+}

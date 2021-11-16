@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'delete.css' %}">
+    <meta charset="UTF-8">
+    <title>ToDoApp</title>
+</head>
+<body>
+    <nav class="navbar navbar-light " style="background-color: indigo;">
+              <div class="container">
+                <a class="navbar-brand">
+                  <img src="{% static 'img/IMG_1025.PNG' %}" alt="" width=108" height="30">
+                </a>
+              </div>
+    </nav>
+    <div class="center-column">
+         <div class="notification">
+            <p>
+                Are you sure you want to delete "{{ item }}"?
+            </p>
+        </div>
+        <div class="go-back">
+            <a class="btn-sm btn-info" href="{% url 'list' %}">
+                Cancel
+            </a>
+        </div>
+        <div class="confirm">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

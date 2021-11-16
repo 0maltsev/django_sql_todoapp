@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
+    <meta charset="UTF-8">
+    <title>ToDoApp</title>
+</head>
+<body>
+    <nav class="navbar navbar-light " style="background-color: indigo;">
+      <div class="container">
+        <a class="navbar-brand">
+          <img src="{% static 'img/IMG_1025.PNG' %}" alt="" width=108" height="30">
+        </a>
+      </div>
+    </nav>
+    <div class="center-column">
+        <form method="POST" action="/">
+            {% csrf_token %}
+            {{ form.title }}
+            <input class="btn btn-info" type="submit" name="Create Task">
+        </form>
+        <div class="todo-list">
+            {%  for task in tasks %}
+                <div class="item-row">
+                    <a class="btn-sm btn-info ml-2 mr-2" href="{% url 'update_task' task.id %}">
+                        Update
+                    </a>
+                    <a class="btn-sm btn-danger ml-2 mr-2" href="{% url 'delete' task.id %}">
+                        Delete
+                    </a>
+
+                    {% if task.complete == True %}
+                    <s>{{ task }}</s>
+                    {% else %}
+                    <span>{{ task }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
